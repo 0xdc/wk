@@ -21,6 +21,7 @@ settings.configure(
         'django.contrib.auth',
         'wk',
     ),
+    ROOT_URLCONF="wk.urls",
 )
 #endsnippet
 
