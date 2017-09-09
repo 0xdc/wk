@@ -5,4 +5,4 @@ from .models import WellKnown
 
 def view(request, tgt):
     wk = get_object_or_404(WellKnown, key__exact=tgt)
-    return HttpResponse(wk.value)
+    return HttpResponse(wk.value, content_type="text/plain")
