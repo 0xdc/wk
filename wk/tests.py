@@ -11,5 +11,5 @@ class ContentTypeTestCase(TestCase):
             """)
 
     def test_for_plain_text(self):
-        response = self.client.get( reverse("view", args=("testcase",) )  )
+        response = self.client.get( reverse("well-known:view", args=("testcase",) )  )
         self.assertEquals(response.__getitem__("Content-Type"), "text/plain")
