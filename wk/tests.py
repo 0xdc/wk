@@ -24,7 +24,8 @@ class WKDTests(TestCase):
 
     def test_for_wkd_static_redirect(self):
         response = self.client.get( reverse("well-known:wkd", args=(self.me,)) )
-        self.assertEquals(
+        self.assertIn("http", response.url)
+        self.assertIn(
+                static( '/'.join(['wk','openpgpkey','hu', self.me]) ),
                 response.url,
-                static( '/'.join(['wk','openpgpkey','hu', self.me]) )
         )
