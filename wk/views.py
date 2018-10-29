@@ -9,4 +9,8 @@ def view(request, tgt):
     return HttpResponse(wk.value, content_type="text/plain")
 
 def wkd(request, tgt):
-    return redirect(static( '/'.join(['wk','openpgpkey','hu', tgt]) ))
+    return redirect(
+            request.build_absolute_uri(
+                static( '/'.join(['wk','openpgpkey','hu', tgt]) )
+            )
+    )
