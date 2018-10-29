@@ -17,5 +17,5 @@ setup(
 	long_description=README,
 	url="https://github.com/0xdc/wk",
 	author="Daniel Cordero",
-	author_email="well-known@m.anyhu.gs",
+	author_email="well-known@0xdc.io",
 )
