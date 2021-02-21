@@ -1,6 +1,9 @@
 from django.shortcuts import get_object_or_404,render,redirect
 from django.http import HttpResponse
-from django.contrib.staticfiles.templatetags.staticfiles import static
+try:
+    from django.contrib.staticfiles.templatetags.staticfiles import static
+except ImportError:
+    from django.templatetags.static import static
 
 from .models import WellKnown
 

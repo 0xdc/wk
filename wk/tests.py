@@ -1,6 +1,9 @@
 from django.test import TestCase
 from django.urls import reverse
-from django.contrib.staticfiles.templatetags.staticfiles import static
+try:
+    from django.contrib.staticfiles.templatetags.staticfiles import static
+except ImportError:
+    from django.templatetags.static import static
 
 
 from .models import WellKnown
