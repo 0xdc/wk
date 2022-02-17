@@ -1,5 +1,5 @@
-from django.conf.urls import include, url
+from django.urls import include, path
 
 urlpatterns = [
-    url(r'^', include('wk.urls', namespace="well-known")),
+    path('', include('wk.urls', namespace="well-known")),
 ]
