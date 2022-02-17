@@ -9,15 +9,19 @@ jobs:
       matrix:
         django:
         - ''
-        - '==2.2.13'
+        - '==2.2.27'
+        python:
+        - 3.8
+        - 3.9
+        - "3.10"
 
     steps:
     - uses: actions/checkout@v2
 
-    - name: set up python 3.8
+    - name: set up python ${{ matrix.python }}
       uses: actions/setup-python@v2
       with:
-        python-version: 3.8
+        python-version: ${{ matrix.python }}
     - name: install dependencies
       run: |
         python -m pip install --upgrade pip
