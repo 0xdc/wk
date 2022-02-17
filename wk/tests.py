@@ -20,6 +20,15 @@ class ContentTypeTestCase(TestCase):
         response = self.client.get( reverse("well-known:view", args=("testcase",) )  )
         self.assertEquals(response.__getitem__("Content-Type"), "text/plain")
 
+class PathTestCase(TestCase):
+    def setUp(self):
+        WellKnown.objects.create(key="key/with/many/parents", value="this object has many parents")
+
+    def test_for_directory_separators(self):
+        response = self.client.get( reverse("well-known:view", args=("key/with/many/parents",) )  )
+        self.assertEquals(response.status_code, 200)
+        self.assertEqual(b"this object has many parents", response.content)
+
 class WKDTests(TestCase):
     def setUp(self):
         # This is the string "me" in zbase32
